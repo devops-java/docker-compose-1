@@ -1,0 +1,12 @@
+version: '2'
+services:
+  mysql:
+    container_name: mysql_db
+    restart: always
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
+      MYSQL_USER: 'user1'
+      MYSQL_PASS: 'mypass1'
+    volumes:
+      - /usr/local/content/mysql:/var/lib/mysql
