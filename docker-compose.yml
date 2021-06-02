@@ -1,12 +1,21 @@
 version: '3.6'
 services:
+  web_app:
+    container_name: web_app
+    image: rkp201/web_db_connect:1.8
+    networks:
+      - metrics-nw
+    ports:
+      - 8080:8080
+    restart:
+      on-failure
   database:
     container_name: mysql_db
     restart: always
-    image: mysql:5.7
+    image: mysql:8.0.25
+    networks:
+      - metrics-nw
     environment:
       MYSQL_ROOT_PASSWORD: 'root_pass'
-      MYSQL_USER: 'user1'
-      MYSQL_PASS: 'mypass1'
-    volumes:
-      - /usr/local/content/mysql:/var/lib/mysql
+networks:
+  metrics-nw: {}

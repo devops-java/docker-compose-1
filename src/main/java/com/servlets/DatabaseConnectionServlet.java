@@ -19,14 +19,19 @@ public class DatabaseConnectionServlet extends HttpServlet {
             throwables.printStackTrace();
             resp.getWriter().write("not able to connect with mysql");
         }
+        catch (ClassNotFoundException e)
+        {
+            resp.getWriter().write("failed to load mysql driver");
+        }
     }
 
-    private Connection getConnection() throws SQLException
+    private Connection getConnection() throws SQLException, ClassNotFoundException
     {
+      Class.forName("com.mysql.cj.jdbc.Driver");
       Connection con = null;
-      String url="jdbc:mysql://localhost:3306/my_demo_db?createDatabaseIfNotExist=true";
+      String url="jdbc:mysql://mysql_db:3306/my_demo_db?createDatabaseIfNotExist=true";
       String userName = "root";
-      String password = "test_pass";
+      String password = "root_pass";
       con = DriverManager.getConnection(url,userName,password);
       return con;
     }
