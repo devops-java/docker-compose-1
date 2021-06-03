@@ -9,6 +9,8 @@ services:
       - 8080:8080
     restart:
       on-failure
+    depends-on:
+      - mysql_db
   database:
     container_name: mysql_db
     restart: always
