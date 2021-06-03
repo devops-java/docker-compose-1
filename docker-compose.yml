@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3'
 services:
   web_app:
     container_name: web_app
@@ -9,8 +9,6 @@ services:
       - 8080:8080
     restart:
       on-failure
-    depends-on:
-      - mysql_db
   database:
     container_name: mysql_db
     restart: always
