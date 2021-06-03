@@ -1,5 +1,8 @@
 # docker-compose-1
 java backend | mysql
+# Install Docker Compose
+https://docs.docker.com/compose/install/
+
 
 # Target Activity
 To connect with mysql from java servlet code. Here java servlet code and mysql both are diffrenet containers. Java Servlet Code is running as `web_app` container. MySQL is running as `mysql_db` container. Both of these containers are connected to same network `metrics-nw`. Look at the docker-compose.yml file in this repository.
